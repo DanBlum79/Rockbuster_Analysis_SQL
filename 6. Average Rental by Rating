@@ -1,0 +1,3 @@
+SELECT F.rating, AVG(F.rental_duration) AS average_rental_duration
+FROM film F
+GROUP BY film F;

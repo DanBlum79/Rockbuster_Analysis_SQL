@@ -2,7 +2,7 @@ SELECT F. title AS Movie_Title, F.rating, C.name AS Genre, SUM(P.amount) AS Tota
 FROM film F
 INNER JOIN film_category E ON F.film_id = E.film_id
 INNER JOIN category C ON E.category_id = C.category_id
-INNER JOIN inventory I ON f.film_id = I.film_id
+INNER JOIN inventory I ON F.film_id = I.film_id
 INNER JOIN rental R ON I.inventory_id = R.inventory_id
 INNER JOIN payment P ON R.rental_id = P.rental_id
 GROUP BY F.title, F.rating, C.name

@@ -1,0 +1,9 @@
+SELECT C.name AS Genre, SUM(P.amount) AS Total_Revenue
+FROM Category C
+INNER JOIN film_category E ON C.category_id = E.category_id
+INNER JOIN film F ON E.film_id = F.film_id
+INNER JOIN inventory I ON F.film_id = I.film_id
+INNER JOIN rental R ON I.inventory_id = R.inventory_id
+INNER JOIN payment P ON R.rental_id = P.rental_id
+GROUP BY C.name
+ORDER BY Total_Revenue DESC;
